@@ -1,34 +1,59 @@
-name: Install Dependencies
+name: LibroWeb CI/CD
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [ main, master ]
   pull_request:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
+    branches: [ main, master ]
+
+env:
+  NODE_ENV: production
 
 jobs:
-  install-dependencies:
+  test-and-build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    defaults:
+      run:
+        working-directory: ./libroweb
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: libroweb/package-lock.json
 
-      - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          elif [ -f yarn.lock ]; then
-            yarn install --frozen-lockfile
-          else
-            npm install
-          fi
+    - name: Install dependencies
+      run: npm ci
+      working-directory: ./libroweb
+
+    - name: Run linting
+      run: npm run lint --if-present
+      working-directory: ./libroweb
+
+    - name: Run tests
+      run: npm test --if-present -- --passWithNoTests
+      working-directory: ./libroweb
+
+    - name: Build application
+      run: npm run build
+      working-directory: ./libroweb
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: libroweb-build-${{ matrix.node-version }}
+        path: |
+          libroweb/.next
+          libroweb/public
+          libroweb/package.json
+        if-no-files-found: warn
