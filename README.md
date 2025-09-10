@@ -49,5 +49,5 @@ A modern, AI-powered library management system developed for Foundation Polytech
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/libroweb.git
+   git clone https://github.com/ojtechbot/libroweb.git
    cd libroweb
