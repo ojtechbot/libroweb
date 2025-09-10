@@ -10,16 +10,16 @@ env:
   NODE_ENV: production
 
 jobs:
-  test-and-build:
+  build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
 
     defaults:
       run:
         working-directory: ./libroweb
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
 
     steps:
     - name: Checkout code
@@ -34,19 +34,15 @@ jobs:
 
     - name: Install dependencies
       run: npm ci
-      working-directory: ./libroweb
 
     - name: Run linting
       run: npm run lint --if-present
-      working-directory: ./libroweb
 
     - name: Run tests
       run: npm test --if-present -- --passWithNoTests
-      working-directory: ./libroweb
 
     - name: Build application
       run: npm run build
-      working-directory: ./libroweb
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
@@ -55,5 +51,4 @@ jobs:
         path: |
           libroweb/.next
           libroweb/public
-          libroweb/package.json
         if-no-files-found: warn
