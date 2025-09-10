@@ -1,39 +1,53 @@
-# libroweb
+# LibroWeb - Foundation Polytechnic Library Management System
 
-This repository is for the `libroweb` project by ojtechbot.
+![Next.js](https://img.shields.io/badge/Next.js-15.0.0-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-18.0-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## Overview
+A modern, AI-powered library management system developed for Foundation Polytechnic, Ikot Ekpene. This web application streamlines library operations, enhances user experience, and provides intelligent book recommendations using cutting-edge technologies.
 
-`libroweb` is designed to provide tools, utilities, or an application (update this section to describe your specific project goals).
+## 🌟 Features
 
-## Features
+### 📚 Core Library Management
+- **Digital Catalog System** - Comprehensive book database with advanced search
+- **User Management** - Student and staff authentication and profiles
+- **Loan Management** - Automated book borrowing and return system
+- **Real-time Availability** - Live updates on book status and reservations
 
-- Feature 1 (describe here)
-- Feature 2 (describe here)
-- Feature 3 (add/remove as appropriate)
+### 🤖 AI-Powered Intelligence
+- **Gemini AI Integration** - Intelligent book recommendations and summaries
+- **GenKit AI Tools** - Advanced natural language processing for queries
+- **Smart Search** - Semantic search understanding context and intent
+- **Personalized Suggestions** - AI-driven reading recommendations based on user preferences
 
-## Getting Started
+### 🎨 Modern User Experience
+- **Responsive Design** - Optimized for desktop, tablet, and mobile devices
+- **Dark/Light Mode** - User-selectable theme preferences
+- **Intuitive Interface** - Clean, modern design with Tailwind CSS
+- **Real-time Updates** - Live notifications and status updates
 
-To get started with `libroweb`, clone the repository and install dependencies:
+## 🛠️ Technology Stack
 
-```bash
-git clone https://github.com/ojtechbot/libroweb.git
-cd libroweb
-npm install
-```
+- **Framework**: Next.js 15 with App Router
+- **Frontend**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with custom components
+- **Backend**: Firebase Authentication & Cloud Firestore
+- **AI Integration**: Google Gemini AI with GenKit
+- **Deployment**: Vercel (optimized for Next.js)
+- **State Management**: React Context + Custom Hooks
 
-## Usage
+## 📦 Installation & Setup
 
-Explain how to use the project. Include commands, links, or relevant documentation.
+### Prerequisites
+- Node.js 18.0 or higher
+- npm or yarn package manager
+- Firebase project with Firestore database
 
-## Contributing
+### Local Development
 
-Contributions are welcome! Please open issues or pull requests for improvements, bugs, or suggestions.
-
-## License
-
-[Specify your license here, e.g., MIT, Apache 2.0, etc.]
-
-## Contact
-
-For questions or support, contact [ojtechbot](https://github.com/ojtechbot).
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/libroweb.git
+   cd libroweb
